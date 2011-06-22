@@ -1,0 +1,76 @@
+<!--[include file="UserDashBoard_admin_menu.htm"]-->
+<!--[pnajaxheader modname=UserDashBoard filename=UserDashBoard_admin_CommonSettings.js nobehaviour=true noscriptaculous=true effects=true]-->
+<div class="z-admincontainer">
+    <div class="z-adminpageicon"><!--[pnimg modname="UserDashBoard" src="admin.png" __alt="UserDashBoard"]--></div>
+    <h2><!--[gt text="Common Settings"]--></h2>
+	<form class="z-form" action="<!--[pnmodurl modname="UserDashBoard" type="admin" func="UpdateCommonSettings"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<div>
+		    <input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="UserDashBoard"]-->" />
+			  
+			<fieldset>
+			    <legend><!--[gt text="<strong>External</strong> Start page settings for <strong>not logged in</strong> Users"]--></legend>
+			    <div class="z-formrow">
+			        <label for="settings_ExternalStartpage"><!--[gt text="Start module"]--></label>
+			        <select id="settings_ExternalStartpage" name="settings[ExternalStartpage]">
+			            <option value=""><!--[gt text="No start module (static frontpage)"]--></option>
+			            <!--[html_select_modules selected=$settings.ExternalStartpage type=user]-->
+			        </select>
+			        <em class="z-formnote"><!--[gt text="('index.php' points to this)"]--></em>
+			    </div>
+			    <div class="z-formrow">
+			        <label for="settings_ExternalStarttype"><!--[gt text="Start function type"]--></label>
+			        <input id="settings_ExternalStarttype" type="text" name="settings[ExternalStarttype]" value="<!--[$settings.ExternalStarttype|pnvarprepfordisplay]-->" size="10" maxlength="10" />
+			    </div>
+			    <div class="z-formrow">
+			        <label for="settings_ExternalStartfunc"><!--[gt text="Start function"]--></label>
+			        <input id="settings_ExternalStartfunc" type="text" name="settings[ExternalStartfunc]" value="<!--[$settings.ExternalStartfunc|pnvarprepfordisplay]-->" size="20" maxlength="40" />
+			    </div>
+			    <div class="z-formrow">
+			        <label for="settings_ExternalStartargs"><!--[gt text="Start function arguments"]--></label>
+			        <input id="settings_ExternalStartargs" type="text" name="settings[ExternalStartargs]" value="<!--[$settings.ExternalStartargs|pnvarprepfordisplay]-->" size="20" maxlength="60" />
+			        <em class="z-formnote"><!--[gt text="(Comma-separated)"]--></em>
+			    </div>
+			</fieldset>    
+			<fieldset>
+			    <legend><!--[gt text="<strong>Internal</strong> Start page settings for <strong>logged in</strong> Users"]--></legend>
+			    
+                <div class="z-formrow">
+                    <label for="settings_AllowCustomizing"><!--[gt text="Allow User to customize their startpage"]--></label>
+                    <div id="settings_AllowCustomizing">
+                        <input id="settings_AllowCustomizing_yes" type="radio" name="settings[AllowCustomizing]" value="1" <!--[if $settings.AllowCustomizing eq 1]-->checked="checked"<!--[/if]--> />
+                        <label for="settings_AllowCustomizing_yes"><!--[gt text="Yes"]--></label>
+                        <input id="settings_AllowCustomizing_no" type="radio" name="settings[AllowCustomizing]" value="0" <!--[if $settings.AllowCustomizing eq 0]-->checked="checked"<!--[/if]--> />
+                        <label for="settings_AllowCustomizing_no"><!--[gt text="No"]--></label>
+                    </div>
+                </div>			
+				<div id="settings_AllowCustomizing_container">
+				    <div class="z-formrow">
+				        <label for="settings_InternalStartpage"><!--[gt text="Start module"]--></label>
+				        <select id="settings_InternalStartpage" name="settings[InternalStartpage]">
+				            <option value=""><!--[gt text="No start module (static frontpage)"]--></option>
+				            <!--[html_select_modules selected=$settings.InternalStartpage type=user]-->
+				        </select>
+				        <em class="z-formnote"><!--[gt text="('index.php' points to this)"]--></em>
+				    </div>
+				    <div class="z-formrow">
+				        <label for="settings_InternalStarttype"><!--[gt text="Start function type"]--></label>
+				        <input id="settings_InternalStarttype" type="text" name="settings[InternalStarttype]" value="<!--[$settings.InternalStarttype|pnvarprepfordisplay]-->" size="10" maxlength="10" />
+				    </div>
+				    <div class="z-formrow">
+				        <label for="settings_InternalStartfunc"><!--[gt text="Start function"]--></label>
+				        <input id="settings_InternalStartfunc" type="text" name="settings[InternalStartfunc]" value="<!--[$settings.InternalStartfunc|pnvarprepfordisplay]-->" size="20" maxlength="40" />
+				    </div>
+				    <div class="z-formrow">
+				        <label for="settings_InternalStartargs"><!--[gt text="Start function arguments"]--></label>
+				        <input id="settings_InternalStartargs" type="text" name="settings[InternalStartargs]" value="<!--[$settings.InternalStartargs|pnvarprepfordisplay]-->" size="20" maxlength="60" />
+				        <em class="z-formnote"><!--[gt text="(Comma-separated)"]--></em>
+				    </div>
+			</div>				 
+			</fieldset>    			
+            <div class="z-formbuttons">
+                <!--[pnbutton src="button_ok.gif" set="icons/small" __alt="Save" __title="Save"]-->
+                <a href="<!--[pnmodurl modname=UserDashBoard type=admin]-->"><!--[pnimg modname=core src="button_cancel.gif" set="icons/small" __alt="Cancel" __title="Cancel"]--></a>
+            </div>			    
+		</div>
+	</form>			  
+</div>

@@ -1,0 +1,30 @@
+<div style="width: 240px; float: left;">
+		<!--[foreach from=$allTopics item="topic"]-->
+			<li>
+                <a href="<!--[lasttopic numrows=$postsperpage replies=$topic.replies assign="page" id=$topic.gid do="forum" fid=$topic.fid topic=$topic.id lastposting=$topic.last_pid]-->#<!--[$topic.last_pid]-->" title="letzter Beitrag">
+				<img src="http://www.netbiker.de/modules/Dizkus/pnimages/icon_topic_latest.gif" style="float: right;margin-right: 10px;"/></a>
+
+				&#187; <a href="<!--[pnmodurl modname="lobby" func="group" id=$topic.gid do="forum" fid=$topic.fid topic=$topic.id]-->"><!--[$topic.title|pnvarprepfordisplay|truncate:'35':'...']--></a><br />
+				&nbsp;&nbsp;<span style="font-size:0.8em;">(<a href="<!--[pnmodurl modname="lobby" func="group" id=$topic.gid]-->"><!--[$topic.group_title|pnvarprepfordisplay|truncate:'40':'...']--></a>)</span>
+			</li>
+		<!--[/foreach]-->
+</div>
+
+<div style="width: 240px; float: left;">
+
+		<!--[foreach from=$allNews item="news"]-->
+			<li>&#187; <a href="<!--[pnmodurl modname="lobby" func="group" id=$news.gid do="news" story=$news.id]-->"><!--[$news.title|pnvarprepfordisplay|truncate:'35':'...']--></a><br />
+				&nbsp;&nbsp;<span style="font-size:0.8em;">(<a href="<!--[pnmodurl modname="lobby" func="group" id=$news.gid]-->"><!--[$news.group_title|pnvarprepfordisplay|truncate:'40':'...']--></a>)</span>
+			</li>
+		<!--[/foreach]-->
+
+
+</div>
+<div style="clear:both; padding-top: 5px;">
+<li><strong>Links:</strong>
+Themen
+<a href="<!--[pnmodurl modname="lobby" func="forums" mode=1]-->">aller Gruppen </a> /
+<a href="<!--[pnmodurl modname="lobby" func="forums" mode=3]-->">eigene Gruppen </a> /
+<a href="<!--[pnmodurl modname="lobby" func="forums" mode=2]-->">Stammtische</a> / <a href="http://www.netbiker.de/Inhalte/kontakte-knuepfen/kontakte-knuepfen--unsere-stammtische.html">Gruppen-&Uuml;bersicht</a>
+</li>
+</div>

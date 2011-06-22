@@ -1,0 +1,27 @@
+<!--[pngetstatusmsg|pnvarprephtmldisplay]-->
+
+<!--[pnajaxheader prototype="1" scriptaculous="1" lightbox="1"]-->
+SIDEBLOCK
+<!--[foreach from=$boxes item=box]-->
+	<!--[$box.boxcode]-->
+<!--[/foreach]-->
+
+<!--[if $allowEdit eq true ]-->
+<!--[if $templates|@count gt 0]-->
+<hr>
+	<div id="box_new" class="box">
+	<!--[pnml name="_BOXES_CHOOSE_CONTENT"]-->
+	<form method="POST" action="<!--[pnmodurl modname="UserDashBoard" type="user" func="add" block=$block]-->">
+		<select name="box" style="width:100%;">
+		<!--[foreach from=$templates item="template"]-->
+			<option value="<!--[$template.name]-->"><!--[$template.title]--></option>
+		<!--[/foreach]-->
+		</select>
+		<input type="hidden" name="pos" value="0" />
+		<input type="submit" value="<!--[pnml name="_BOXES_ADD"]-->" />
+	</form>
+	</div>
+<!--[/if]-->
+<!--[/if]-->
+
+

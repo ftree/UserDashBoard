@@ -1,0 +1,34 @@
+<div style="width: 240px; float: left;">
+    <strong>Themen:</strong>
+		<!--[foreach from=$allTopics item="topic"]-->
+			<li>
+                <a href="<!--[lasttopic numrows=$postsperpage replies=$topic.replies assign="page" id=$topic.gid do="forum" fid=$topic.fid topic=$topic.id lastposting=$topic.last_pid]-->#<!--[$topic.last_pid]-->" title="letzter Beitrag">
+				<img src="http://www.netbiker.de/modules/Dizkus/pnimages/icon_topic_latest.gif" style="float: right;margin-right: 10px;"/></a>
+
+				&#187; <a href="<!--[pnmodurl modname="lobby" func="group" id=$topic.gid do="forum" fid=$topic.fid topic=$topic.id]-->"><!--[$topic.title|pnvarprepfordisplay|truncate:'30':'...']--></a><br />
+			</li>
+		<!--[/foreach]-->
+</div>
+
+<div style="width: 240px; float: left;">
+    <strong>News:</strong>
+
+		<!--[foreach from=$allNews item="news"]-->
+			<li>&#187; <a href="<!--[pnmodurl modname="lobby" func="group" id=$news.gid do="news" story=$news.id]-->"><!--[$news.title|pnvarprepfordisplay|truncate:'35':'...']--></a><br />
+			</li>
+		<!--[/foreach]-->
+
+
+</div>
+<div style="clear:both; padding-top: 5px;">
+<li><strong>Neueste Mitglieder:</strong>
+<!--[foreach from=$newMembers item="user"]-->
+<!--[$user.uname|userprofilelink]-->,
+<!--[/foreach]--> Willkommen hier!
+</li>
+<li><strong>Links:</strong>
+<a href="<!--[pnmodurl modname="lobby" func="group" id=$gid]-->">Gruppen-Startseite</a> /
+<a href="<!--[pnmodurl modname="lobby" func="group" do="news" id=$gid]-->">Neuigkeiten der Gruppe</a> /
+<a href="<!--[pnmodurl modname="lobby" func="group" do="forums" id=$gid]-->">Foren der Gruppe</a>.
+</li>
+</div>
